@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+$font-stack: 'Nunito Sans', sans-serif;
+
+$font-home-items: 14px;
+$font-detail-page: 16px;
+
+//colors
+
+$dark-blue-dark-mode-elem: hsl(209, 23%, 22%);
+$very-dark-blue-dark-mode-back: hsl(207, 26%, 17%);
+$very-dark-blue-light-mode-text: hsl(200, 15%, 8%);
+$dark-gray-light-mode-input: hsl(0, 0%, 52%);
+$very-light-gray-light-mode-back: hsl(0, 0%, 98%);
+
+//dark mode text ^ light mode elements
+$white: hsl(0, 0%, 100%);
+
+$font-weight:(
+    'light' : 300,
+    'semi-bold' : 600,
+    'extra-bold' : 800
+);
+
+@function weight($weight-name){
+    @return map-get($font-weight, $weight-name)
+}
+
+$mobile: 375px;
+$desktop: 1440px;
+
+@mixin respond($breakpoint){
+    @if($breakpoint == large){
+        @media (min-width: 750px) {
+            @content
+        }
+    };
+    @if ($breakpoint == small){
+        @media (max-width: 375px) {
+            @content
+        }
+    }
+}
