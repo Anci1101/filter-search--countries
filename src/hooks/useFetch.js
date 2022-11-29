@@ -10,6 +10,7 @@ const useFetch = (url) => {
         fetch(url)
         .then(res => res.json())
         .then(res => {
+            console.log(res);
             setData(res)
             setLoading(false)
             setError(null)

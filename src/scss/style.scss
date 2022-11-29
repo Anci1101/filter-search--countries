@@ -30,6 +30,7 @@ $font-weight:(
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    // font-style: $font-stack;
 }
 
 $mobile: 375px;
@@ -204,6 +205,22 @@ $desktop: 1440px;
     box-shadow: 0px 0px 10px -5px $dark-gray-light-mode-input;
 }
 
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: $very-dark-blue-light-mode-text;
+}
+
+// a:visited {
+//     text-decoration: none;
+// }
+// a:hover {
+//     text-decoration: none;
+// } 
+ 
+// a:active  {
+//     text-decoration: none;
+// }
+
 .country-flag {
     height: 50%;
     border-radius: 10px;
@@ -234,3 +251,162 @@ $desktop: 1440px;
 .country-details > p > span {
     font-weight: weight('light');
 }
+
+//country details page
+
+
+.country-det {
+
+    font-family: $font-stack;
+
+    min-width: 320px;
+
+    
+    display: flex;
+    flex-direction: column;
+    
+        @include respond(large){
+            width: 100vw;
+            flex-direction: row;
+            margin: 40px;
+            gap:40px;
+        }   
+}
+
+.country-flag-det {
+    height: 100%;
+    @include respond(large) {
+        height: 100%;
+        width: 50%;
+    }
+}
+
+.country-flag-det > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.country-details-det {
+
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    @include respond(large) {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 10px;
+        gap: 20px;
+    }
+}
+
+.country-details-det > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: $font-stack;
+    font-size: $font-detail-page;
+
+    @include respond(large) {
+        gap: 3px;
+    }
+    
+
+}
+
+.country-details-det > h3 {
+    @include respond(large) {
+        grid-column: 1/3;
+        grid-row: 1;
+    }
+}
+
+.country-details-det > div:nth-child(2) {
+    @include respond(large) {
+        grid-column: 1/2;
+    }
+}
+
+.country-details-det > div:nth-child(3) {
+    @include respond(large) {
+        grid-column: 2/3;
+    }
+}
+
+.country-details-det > div:nth-child(4) {
+    @include respond(large) {
+        grid-column: 1/3;
+    }
+}
+
+.country-details-det > h3 {
+    font-weight: weight('extra-bold');
+    margin-bottom: 15px;
+
+}
+
+.country-details-det > div > p {
+    font-weight: weight('semi-bold');
+}
+
+.country-details-det > div > p > span {
+    font-weight: weight('light');
+}
+
+.borders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include respond(large) {
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+}
+
+.borders-wrapper {
+    align-self: center;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.border {
+    background-color: $white;
+    box-shadow: 0px 0px 8px 0px $dark-gray-light-mode-input;
+    padding: 5px;
+    border-radius: 2px;
+    font-family: $font-stack;
+    font-weight: weight('light');
+    font-size: $font-detail-page;
+    text-align: center;
+    width: 80px;
+}
+
+.btn-back {
+    margin: 40px 20px 40px 20px;
+    width: 110px;
+    background-color: $white;
+    box-shadow: 0px 0px 8px 0px $dark-gray-light-mode-input;
+    padding: 5px;
+    border-radius: 2px;
+    font-family: $font-stack;
+    font-weight: weight('light');
+    font-size: $font-detail-page;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+
+    @include respond(large){
+        margin: 40px;
+    }
+}
+
+.btn-back:active{
+    background: hsl(0, 0%, 90%);
+}
+
