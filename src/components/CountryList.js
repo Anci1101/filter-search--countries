@@ -1,21 +1,23 @@
-import React from 'react'
-import useFetch from '../hooks/useFetch';
+import React, { useContext } from 'react'
 import Country from "./Country";
+import { CountryContext } from './CountryContext';
 
 
 const CountryList = () => {
-  const {data:countries, loading, error} = useFetch('https://restcountries.com/v3.1/all')
+  const {countries} = useContext(CountryContext)
   console.log(countries, 'data');
 
   return (
     <div className='country-wrapper grid'>
-      {countries.map((country)=>(
+      {countries && countries.map((country)=>(
         <Country 
           countryname={country.name.common}
           population={country.population}
           region={country.region}
           capital={country.capital}
-          flag={country.flags.png}/>
+          flag={country.flags.png}
+          key={country.name.official}
+          id={country.name.official}/>
       ))}
       
     </div>

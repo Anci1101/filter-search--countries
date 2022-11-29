@@ -1,21 +1,23 @@
 import './scss/scss-style'
-import Nav from './components/Nav'
-import Search from './components/Search'
-import FilterInput from './components/FilterInput'
-import CountryList from './components/CountryList'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Home from './components/Home'
+import CountryDetails from './components/CountryDetails'
+import { CountryProvider } from './components/CountryContext'
 
 
 
 function App() {
   return (
-    <div className='container'>
-      <Nav/>
-        <div className='search-filter-wrapper'>
-          <Search/>
-          <FilterInput/>
-        </div>
-      <CountryList/>
-    </div>
+    <>
+      <CountryProvider>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/CountryDetails/:id' element={<CountryDetails/>}/>
+        </Routes>
+      </Router>
+      </CountryProvider>
+    </>
   );
 }
 
