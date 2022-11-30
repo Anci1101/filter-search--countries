@@ -1,11 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Country from "./Country";
-import { CountryContext } from './CountryContext';
 
 
-const CountryList = () => {
-  const {countries} = useContext(CountryContext)
-  console.log(countries, 'data');
+const CountryList = ({countries}) => {
 
   return (
     <div className='country-wrapper grid'>
