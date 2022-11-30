@@ -2,10 +2,10 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 
-const FilterInput = () => {
+const FilterInput = ({handleFilterRegion}) => {
 
   const [open, setOpen] = useState(false)
-
+  
   const handleOpen = () => {
     setOpen(!open)
   }
@@ -20,11 +20,10 @@ const FilterInput = () => {
     </div>
     {open && (
       <div className='filter-input-menu'>
-          <button>Africa</button>
-          <button>America</button>
-          <button>Asia</button>
-          <button>Europe</button>
-          <button>Oceania</button>
+          <button onClick={()=>handleFilterRegion('Africa')}>Africa</button>
+          <button onClick={()=>handleFilterRegion('Asia')}>Asia</button>
+          <button onClick={()=>handleFilterRegion('Europe')}>Europe</button>
+          <button onClick={()=>handleFilterRegion('Oceania')}>Oceania</button>
       </div>)}
     </div>
   )
