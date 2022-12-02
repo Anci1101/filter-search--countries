@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 
 const FilterInput = ({handleFilterRegion}) => {
 
+  const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
+
   const [open, setOpen] = useState(false)
   
   const handleOpen = () => {
@@ -20,10 +22,9 @@ const FilterInput = ({handleFilterRegion}) => {
     </div>
     {open && (
       <div className='filter-input-menu'>
-          <button onClick={()=>handleFilterRegion('Africa')}>Africa</button>
-          <button onClick={()=>handleFilterRegion('Asia')}>Asia</button>
-          <button onClick={()=>handleFilterRegion('Europe')}>Europe</button>
-          <button onClick={()=>handleFilterRegion('Oceania')}>Oceania</button>
+          {regions.map((region)=>(
+            <button onClick={(e)=>handleFilterRegion(e)} name={region} key={region}>{region}</button>
+          ))}
       </div>)}
     </div>
   )
