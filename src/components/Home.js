@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CountryContext } from './CountryContext'
 import CountryList from './CountryList'
 import FilterInput from './FilterInput'
@@ -9,24 +9,51 @@ const Home = () => {
 
   const {countries} = useContext(CountryContext)
 
-  const [currentRegion, setCurrentRegion] = useState('')
+  const [filteredCountriesByRegion, setFilteredCountriesByRegion] = useState([])
 
-  const handleFilterRegion = ( region) => {
-    setCurrentRegion(region)
+  const [filteredData, setFilteredData] = useState(countries)
+
+  const [searchedWord, setSearchedWord] = useState('')
+
+  useEffect(() => {
+    setFilteredData(countries)
+  }, [countries])
+  
+
+  const handleFilterRegion = (e) => {
+    const region = e.target.name
+    const dropdownFilteredCountries = countries.filter((country)=>country.region === region)
+
+    const checkedSreachWord = searchedWord !== '' ? dropdownFilteredCountries.filter((country)=>{
+      return country.name.common.toLowerCase().includes(searchedWord.toLowerCase())
+    }) : dropdownFilteredCountries
+
+    setFilteredCountriesByRegion(checkedSreachWord)
+    setFilteredData(checkedSreachWord)
   }
 
-  const filteredCountriesByRegion = (countries, currentRegion) => {
-    return countries.filter((country)=>country.region === currentRegion
-  )}
+
+const handleSearch = (e) => {
+  const searchInput = e.target.value
+  setSearchedWord(searchInput)
+  const countriesToSearch = filteredCountriesByRegion.length !== 0 ? filteredCountriesByRegion : countries
+
+  const filteredCountriesBySearchInput = countriesToSearch.filter((country)=>{
+    return country.name.common.toLowerCase().includes(searchInput.toLowerCase())
+  })
+
+  setFilteredData(filteredCountriesBySearchInput)
+}
+
 
   return (
     <div className='container'>
     <Nav/>
        <div className='search-filter-wrapper'>
-         <Search/>
+         <Search countries={countries} handleSearch={handleSearch}/>
          <FilterInput handleFilterRegion={handleFilterRegion}/>
        </div>
-     {countries && <CountryList countries={currentRegion ? filteredCountriesByRegion(countries, currentRegion) : countries}/>}
+     {countries && <CountryList countries={filteredData}/>}
     </div>
   )
 }
