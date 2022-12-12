@@ -38,7 +38,7 @@ const CountryDetails = () => {
 
 
   return (
-    <div>
+    <div className='country-details-container'>
       <Nav/>
         <div className='btn-back' onClick={handleBack}>
           <div><FontAwesomeIcon icon={faArrowLeft}/></div>
