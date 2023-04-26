@@ -26,6 +26,13 @@ $font-weight:(
     @return map-get($font-weight, $weight-name)
 }
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    // font-style: $font-stack;
+}
+
 $mobile: 375px;
 $desktop: 1440px;
 
@@ -41,3 +48,442 @@ $desktop: 1440px;
         }
     }
 }
+
+
+
+.container {
+    background-color: $very-light-gray-light-mode-back;
+    // max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    // height: 100vh;
+}
+
+#dark .container{
+    background-color: $very-dark-blue-dark-mode-back;
+ }
+
+.search-filter-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include respond(large) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.nav {
+    height: 70px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $font-stack;
+    box-shadow: 0px 10px 10px -15px $dark-gray-light-mode-input;
+    font-size: $font-home-items;
+}
+
+#dark .nav {
+    background-color: $dark-blue-dark-mode-elem;
+    color: #fff;
+    box-shadow: none;
+}
+
+.nav-question {
+    font-weight: weight('extra-bold');
+}
+
+.nav-mode {
+    font-weight: weight('semi-bold');
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.search-bar {
+    max-width: 450px;
+    height: 50px;
+    display: flex;
+    // justify-content: center;
+    border-radius: 10px;
+    margin: 30px 15px;
+    box-shadow: 0px 0px 10px -5px $dark-gray-light-mode-input;
+
+    @include respond(large) {
+        width: 450px;
+        margin-left: 40px;
+    }
+    
+}
+
+#dark .search-bar {
+    background-color: $dark-blue-dark-mode-elem;
+    box-shadow: none;
+}
+
+.search-bar > button {
+    width: 20%;
+    background-color: $white;
+    color: $dark-gray-light-mode-input;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#dark .search-bar > button {
+    background-color: $dark-blue-dark-mode-elem;
+    color: #fff;
+}
+
+.search-bar > input {
+    width: 80%;
+    border: none;
+    border-radius: 10px;
+    outline-style: none;
+}
+
+#dark .search-bar > input {
+    background-color: $dark-blue-dark-mode-elem;
+    // color: #fff;
+}
+
+
+.filter-input {
+    background-color: $very-light-gray-light-mode-back;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 30px 15px 5px 15px;
+    display: flex;
+    align-items: center;
+    // padding: 15px;
+    justify-content: space-between;
+    font-family: $font-stack;
+    font-weight: weight('semi-bold');
+    box-shadow: 0px 0px 10px -5px $dark-gray-light-mode-input;
+    font-size: 14px;
+}
+
+#dark .filter-input {
+    background-color: $dark-blue-dark-mode-elem;
+    color: #fff;
+    box-shadow: none;
+}
+
+.filter-input > p {
+    margin-left: 10px;
+}
+
+.filter-btn {
+    height: 100%;
+    width: 20%;
+    border-radius: 10px;
+    border: none;
+    background-color: $white;
+    cursor: pointer;
+}
+
+#dark .filter-btn {
+    background-color: $dark-blue-dark-mode-elem;
+    color: #fff;
+}
+
+.filter-input-menu {
+    background-color: $very-light-gray-light-mode-back;
+    width: 200px;
+    // height: 50px;
+    border-radius: 10px;
+    margin: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    // padding: 15px;
+    // justify-content: space-between;
+    font-family: $font-stack;
+    font-weight: weight('semi-bold');
+    box-shadow: 0px 0px 10px -5px $dark-gray-light-mode-input;
+    font-size: 14px;
+    position: absolute;
+    z-index: 1;
+}
+
+#dark .filter-input-menu {
+    background-color: $dark-blue-dark-mode-elem;
+    box-shadow: none;
+    color: #fff;
+}
+
+.filter-input-menu > button {
+    background-color: $white;
+    height: 35px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+#dark .filter-input-menu > button {
+    background-color: $dark-blue-dark-mode-elem;
+    color: #fff;
+}
+
+.filter-input-menu > button:hover{
+    background-color: hsl(0, 0%, 91%)
+}
+
+.country-wrapper {
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr ;
+        @include respond(large){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }   
+}
+
+.country {
+    height: 440px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin: 40px 20px 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px -5px $dark-gray-light-mode-input;
+}
+
+#dark .country {
+    box-shadow: none;
+    background-color: $dark-blue-dark-mode-elem;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: $very-dark-blue-light-mode-text;
+}
+
+// a:visited {
+//     text-decoration: none;
+// }
+// a:hover {
+//     text-decoration: none;
+// } 
+ 
+// a:active  {
+//     text-decoration: none;
+// }
+
+.country-flag {
+    height: 50%;
+    border-radius: 10px;
+}
+
+.country-flag > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+
+.country-details {
+    font-family: $font-stack;
+    padding: 40px;
+}
+
+#dark .country-details {
+    color: #fff;
+}
+
+.country-details > h4 {
+    font-weight: weight('extra-bold');
+    margin-bottom: 10px;
+}
+
+.country-details > p {
+    font-weight: weight('semi-bold');
+}
+
+.country-details > p > span {
+    font-weight: weight('light');
+}
+
+//country details page
+
+#dark .country-details-container{
+    background-color: $very-dark-blue-dark-mode-back;
+    height: 100vh;
+}
+
+
+.country-det {
+
+    font-family: $font-stack;
+    margin: 20px;
+    min-width: 320px;
+
+    
+    display: flex;
+    flex-direction: column;
+    
+        @include respond(large){
+            width: 100vw;
+            flex-direction: row;
+            margin: 40px;
+            gap:40px;
+        }   
+}
+
+#dark .country-det {
+    color: #fff;
+}
+
+.country-flag-det {
+    height: 100%;
+    @include respond(large) {
+        height: 100%;
+        width: 50%;
+    }
+}
+
+.country-flag-det > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.country-details-det {
+
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    @include respond(large) {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 10px;
+        gap: 20px;
+    }
+}
+
+.country-details-det > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: $font-stack;
+    font-size: $font-detail-page;
+
+    @include respond(large) {
+        gap: 3px;
+    }
+    
+
+}
+
+.country-details-det > h3 {
+    @include respond(large) {
+        grid-column: 1/3;
+        grid-row: 1;
+    }
+}
+
+.country-details-det > div:nth-child(2) {
+    @include respond(large) {
+        grid-column: 1/2;
+    }
+}
+
+.country-details-det > div:nth-child(3) {
+    @include respond(large) {
+        grid-column: 2/3;
+    }
+}
+
+.country-details-det > div:nth-child(4) {
+    @include respond(large) {
+        grid-column: 1/3;
+    }
+}
+
+.country-details-det > h3 {
+    font-weight: weight('extra-bold');
+    margin-bottom: 15px;
+
+}
+
+.country-details-det > div > p {
+    font-weight: weight('semi-bold');
+}
+
+.country-details-det > div > p > span {
+    font-weight: weight('light');
+}
+
+.borders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include respond(large) {
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+}
+
+.borders-wrapper {
+    align-self: center;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.border {
+    background-color: $white;
+    box-shadow: 0px 0px 8px 0px $dark-gray-light-mode-input;
+    padding: 5px;
+    border-radius: 2px;
+    font-family: $font-stack;
+    font-weight: weight('light');
+    font-size: $font-detail-page;
+    text-align: center;
+    width: 80px;
+}
+
+#dark .border {
+    background-color: $dark-blue-dark-mode-elem;
+    box-shadow: none;
+}
+
+.btn-back {
+    margin: 40px 20px 40px 20px;
+    width: 110px;
+    background-color: $white;
+    box-shadow: 0px 0px 8px 0px $dark-gray-light-mode-input;
+    padding: 5px;
+    border-radius: 2px;
+    font-family: $font-stack;
+    font-weight: weight('light');
+    font-size: $font-detail-page;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+
+    @include respond(large){
+        margin: 40px;
+    }
+}
+
+#dark .btn-back {
+    background-color: $dark-blue-dark-mode-elem;
+    box-shadow: 0px 0px 8px 0px $very-dark-blue-light-mode-text;
+    color: #fff;
+}
+
+.btn-back:active{
+    background: hsl(0, 0%, 90%);
+}
+
